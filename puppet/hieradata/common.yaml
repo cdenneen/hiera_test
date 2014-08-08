@@ -1,0 +1,12 @@
+---
+mymodule::template: '/vagrant/puppet/modules/mymodule/templates/myfile.erb'
+mymodule::options:
+  param1: param1
+  param2: param2
+  param3: param3
+  param4: param4
+  nested:
+    param1: nested_param1
+    param2: nested_param2
+    param3: nested_param3
+    param4: nested_param4

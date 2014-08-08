@@ -1,0 +1,4 @@
+---
+mymodule::options:
+  nested:
+    param4: new_nested_param4

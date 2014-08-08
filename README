@@ -1,0 +1,25 @@
+This is a vagrant configuration to show issue with hiera merge_behavior: deeper not working
+
+[vagrant@centos65 ~]$ more /tmp/mymodule.conf
+# This file is managed by Puppet. DO NOT EDIT.
+  These are my options:
+     param1 =
+     param2 =
+     param3 =
+     param4 =
+     nested =
+       param1 =
+       param2 =
+       param3 =
+       param4 = new_nested_param4
+[vagrant@centos65 ~]$ hiera --hash -c /vagrant/puppet/hiera.yaml mymodule::options
+WARN: Thu Aug 07 22:15:31 -0700 2014: Not using Hiera::Puppet_logger. It does not report itself to be suitable.
+{"param1"=>"param1",
+ "param2"=>"param2",
+ "param3"=>"param3",
+ "param4"=>"param4",
+ "nested"=>
+  {"param1"=>"nested_param1",
+   "param2"=>"nested_param2",
+   "param3"=>"nested_param3",
+   "param4"=>"nested_param4"}}
